@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Signup from './Signup';
 import { useSignin } from '@/lib/react-query/queriesAndMutations';
 import { useState } from 'react';
 
@@ -65,11 +64,7 @@ const Signin = () => {
             </button>
             <p>
               Don't have an account?{' '}
-              <Link
-                className="text-orange-400"
-                to="/signup"
-                element={<Signup />}
-              >
+              <Link className="text-orange-400" to="/signup">
                 Create account
               </Link>
             </p>

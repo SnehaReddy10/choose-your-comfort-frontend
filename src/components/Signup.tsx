@@ -64,11 +64,7 @@ const Signup = () => {
             </button>
             <p>
               Already have an account?{' '}
-              <Link
-                className="text-orange-400"
-                to="/signin"
-                element={<Signup />}
-              >
+              <Link className="text-orange-400" to="/signin">
                 Signin
               </Link>
             </p>

@@ -56,7 +56,7 @@ const Hero = () => {
                 />
               </button>
               <p>
-                <Link path="/play-vide">Watch Video</Link>
+                <Link to="/play-vide">Watch Video</Link>
               </p>
             </div>
           </div>
