@@ -29,7 +29,10 @@ module.exports = {
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-in',
+        'fade-out': 'fadeIn 2s forwards, fadeOut 2s forwards 2s',
+        'fade-in': 'fadeIn 2s forwards',
+        'lift-up': 'liftUp 2s ease',
       },
     },
     colors: {
@@ -54,6 +57,9 @@ module.exports = {
       },
       brown: {
         200: '#353434',
+      },
+      green: {
+        300: '#00b300',
       },
     },
   },

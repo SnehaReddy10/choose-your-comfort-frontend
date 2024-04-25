@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import CategorySection from './CategorySection';
 import Feedback from './Feedback';
 import Footer from './Footer';
@@ -19,6 +19,7 @@ import Faq from './Faq';
 import WishList from './WishList';
 import Checkout from './Checkout';
 import Video from './Video';
+import { Constants } from '@/common/constants';
 
 const categories1 = [
   {
@@ -78,26 +79,36 @@ const Home = () => {
   const signup: string = '/signup';
 
   return (
-    <div className="mx-1 xl:mx-14">
+    <div className="">
       {pathname !== signin && pathname !== signup ? <Navbar /> : <></>}
       <Routes>
-        <Route path="" element={<Main />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/offers" element={<Offers />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wish-list" element={<WishList />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/play-video" element={<Video />} />
       </Routes>
+      <div className="mx-1 xl:mx-14">
+        <Routes>
+          <Route path="" element={<Main />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wish-list" element={<WishList />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/play-video" element={<Video />} />
+        </Routes>
+      </div>
     </div>
   );
 };
 
 function Main() {
+  const navigate = useNavigate();
+
+  if (localStorage.getItem(Constants.TOKEN) == null) {
+    navigate('/signin');
+  }
+
   return (
     <div className="mb-8">
       <Hero />

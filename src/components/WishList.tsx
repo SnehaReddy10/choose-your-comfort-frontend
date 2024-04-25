@@ -1,6 +1,7 @@
 import { useGetWishlist } from '@/lib/react-query/queriesAndMutations';
 import WishlistItem from './WishlistItem';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 
 const WishList = () => {
   const { data: wishlist, isLoading, error } = useGetWishlist();
@@ -30,11 +31,12 @@ const WishList = () => {
       </div>
     );
   }
-
   return (
     <div>
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="flex h-[80vh] justify-center items-center">
+          <Loader />
+        </div>
       ) : (
         <div className="flex flex-col gap-5 my-2">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-5">

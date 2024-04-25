@@ -2,37 +2,19 @@ import { User } from './../../models/user.model';
 import axios from 'axios';
 
 export const signup = async (credentials: User) => {
-  try {
-    const token = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/auth/signup`,
-      {
-        username: credentials.username,
-        email: credentials.email,
-        password: credentials.password,
-        confirmPassword: credentials.confirmPassword,
-      }
-    );
-    return token;
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+  return await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/signup`, {
+    username: credentials.username,
+    email: credentials.email,
+    password: credentials.password,
+    confirmPassword: credentials.confirmPassword,
+  });
 };
 
 export const signin = async (username: string, password: string) => {
-  try {
-    const token = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/auth/signin`,
-      {
-        username,
-        password,
-      }
-    );
-    return token;
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
+  return await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/signin`, {
+    username,
+    password,
+  });
 };
 
 export const getCart = async () => {
@@ -44,7 +26,7 @@ export const getCart = async () => {
       },
     });
     return cart;
-  } catch (err) {
+  } catch (err: any) {
     console.log(err);
     throw err;
   }
@@ -52,7 +34,6 @@ export const getCart = async () => {
 
 export const getProducts = async () => {
   console.log('getProducts query fxn');
-
   try {
     const products = await axios.get(
       `${import.meta.env.VITE_BACKEND_URL}/product`,

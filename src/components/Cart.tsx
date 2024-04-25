@@ -4,10 +4,11 @@ import {
   usePlaceOrder,
 } from '@/lib/react-query/queriesAndMutations';
 import { Link, useNavigate } from 'react-router-dom';
+import Loader from './Loader';
+import Toast from './Toast';
 
 const Cart = () => {
-  const navigate = useNavigate();
-  const { data: cart, isLoading, error } = useGetCart();
+  const { data: cart, isLoading, isError, error } = useGetCart();
   const { mutateAsync: placeOrder } = usePlaceOrder();
 
   function handlePlaceOrder() {
@@ -15,10 +16,10 @@ const Cart = () => {
   }
 
   const isCartEmpty = cart?.data?.cart?.products.length <= 0;
-  if (error?.message) {
-    {
-      navigate('/signin');
-    }
+
+  if (isError) {
+    console.log('error-message', error.message);
+    return <Toast message={error.message} />;
   }
 
   if (isCartEmpty) {
@@ -43,7 +44,9 @@ const Cart = () => {
   return (
     <div className="my-5">
       {isLoading ? (
-        <div>Loading</div>
+        <div className="flex h-[80vh] justify-center items-center">
+          <Loader />
+        </div>
       ) : (
         <div className="flex">
           <div className="w-2/3">
