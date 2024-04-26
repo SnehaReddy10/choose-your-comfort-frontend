@@ -3,7 +3,7 @@ import {
   useGetCart,
   usePlaceOrder,
 } from '@/lib/react-query/queriesAndMutations';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loader from './Loader';
 import Toast from './Toast';
 
