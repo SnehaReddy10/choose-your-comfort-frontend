@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const socialMediaIcons = [
@@ -23,31 +24,38 @@ const sections = [
   {
     label: 'Home',
     route: '/',
+    imgUrl: 'home',
   },
   {
     label: 'Products',
     route: '/products',
+    imgUrl: 'sofa',
   },
   {
     label: 'Cart',
     route: '/cart',
+    imgUrl: 'grocery-store',
   },
   {
     label: 'Wishlist',
     route: '/wish-list',
+    imgUrl: 'wish-list',
   },
   {
     label: 'About',
     route: '/about',
+    imgUrl: 'information-button',
   },
   {
     label: 'FAQ',
     route: '/faq',
+    imgUrl: 'help',
   },
 ];
 const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const logoutUser = () => {
     localStorage.removeItem('token');
@@ -80,7 +88,7 @@ const Navbar = () => {
             <Link to={x.route}>
               <div
                 key={x.label}
-                className="hover:bg-gray-100 rounded-full h-4 w-4 m-1 lg:m-2 flex justify-center items-center"
+                className="hover:bg-gray-100 rounded-full h-4 w-4 md:m-1 my-1 lg:m-2 flex justify-center items-center"
               >
                 <img
                   key={x.label}
@@ -96,7 +104,7 @@ const Navbar = () => {
       <div className="w-full border-[#e3e2e2] border-b-[1px]"></div>
       <div className="mt-2 bottomNavbar flex justify-between items-center text-sm">
         <div className="font-semibold text-base">Furniture</div>
-        <div className="lg:flex text-[8px] lg:text-[12px] md:gap-1 lg:gap-2">
+        <div className="hidden lg:flex text-[8px] lg:text-[12px] md:gap-1 lg:gap-2">
           {sections.map((x) => {
             const isActive = pathname == x.route;
             return (
@@ -115,74 +123,75 @@ const Navbar = () => {
           })}
         </div>
 
-        <div
-          id="dropdown"
-          className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-        >
-          <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdownDefaultButton"
-          >
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+        <div className="flex gap-3 me-2">
+          {localStorage.getItem('token') == '' ? (
+            <div className="flex text-[12px] text-nowrap justify-between gap-2 lg:gap-3">
+              <button
+                onClick={() => navigate('/signin')}
+                className="underline text-orange-100 hover:text-orange-400"
               >
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black-900"
+                Sign In
+              </button>
+              <button
+                onClick={() => navigate('/signup')}
+                className="bg-orange-100 hover:bg-orange-400 text-white px-2 lg:px-3 flex rounded-xl"
               >
-                Settings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                Sign Up
+              </button>
+            </div>
+          ) : (
+            <div className="flex text-[12px] text-nowrap justify-between gap-2 lg:gap-3">
+              <button
+                onClick={logoutUser}
+                className=" text-orange-100 hover:text-orange-400"
               >
-                Earnings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Sign out
-              </a>
-            </li>
-          </ul>
-        </div>
+                Logout
+              </button>
+            </div>
+          )}
 
-        {localStorage.getItem('token') == '' ? (
-          <div className="flex text-[12px] text-nowrap justify-between gap-2 lg:gap-3">
-            <button
-              onClick={() => navigate('/signin')}
-              className="underline text-orange-100 hover:text-orange-400"
+          <div className="md:hidden relative border-[2px] border-gray-200">
+            <img
+              src="/assets/icons/menu.png"
+              alt="menu"
+              className="h-5 w-5"
+              onClick={() => setShowDropdown((x) => !x)}
+            />
+            <div
+              className={`fixed z-10 top-20 end-5 ${
+                showDropdown ? 'flex flex-col' : 'hidden'
+              } bg-gray-300 rounded-md transition-all duration-300 ease-in-out`}
             >
-              Sign In
-            </button>
-            <button
-              onClick={() => navigate('/signup')}
-              className="bg-orange-100 hover:bg-orange-400 text-white px-2 lg:px-3 flex rounded-xl"
-            >
-              Sign Up
-            </button>
+              {sections.map((x) => {
+                const isActive = pathname == x.route;
+                return (
+                  <div
+                    key={x.label}
+                    className="hover:bg-gray-100 px-4 py-1 border-b-[1px] flex gap items-center"
+                  >
+                    <img
+                      src={`/assets/icons/${x.imgUrl}.png`}
+                      alt={x.imgUrl}
+                      className="h-4 w-4"
+                    />
+                    <Link
+                      to={x.route}
+                      className={`p-1 text-nowrap hover:text-gray-400 text-[16px] font-mono ${
+                        isActive
+                          ? 'text-black-900 font-semibold'
+                          : 'text-black-100'
+                      }`}
+                      key={x.label}
+                      onClick={() => setShowDropdown((x) => !x)}
+                    >
+                      {x.label}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        ) : (
-          <div className="flex text-[12px] text-nowrap justify-between gap-2 lg:gap-3">
-            <button
-              onClick={logoutUser}
-              className=" text-orange-100 hover:text-orange-400"
-            >
-              Logout
-            </button>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
