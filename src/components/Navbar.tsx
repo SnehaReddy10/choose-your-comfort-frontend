@@ -104,7 +104,7 @@ const Navbar = () => {
       <div className="w-full border-[#e3e2e2] border-b-[1px]"></div>
       <div className="mt-2 bottomNavbar flex justify-between items-center text-sm">
         <div className="font-semibold text-base">Furniture</div>
-        <div className="hidden lg:flex text-[8px] lg:text-[12px] md:gap-1 lg:gap-2">
+        <div className="hidden md:flex text-[8px] lg:text-[12px] md:gap-1 lg:gap-2">
           {sections.map((x) => {
             const isActive = pathname == x.route;
             return (
