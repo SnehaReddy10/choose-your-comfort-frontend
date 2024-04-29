@@ -85,7 +85,7 @@ const Home = () => {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <div className="mx-1 xl:mx-14">
+      <div className="mx-3 xl:mx-14">
         <Routes>
           <Route path="" element={<Main />} />
           <Route path="/about" element={<About />} />

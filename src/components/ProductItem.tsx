@@ -42,7 +42,7 @@ const ProductItem = ({ product }: any) => {
         <img
           src={product.imageUrl}
           alt={product.label}
-          className="w-44 h-32 border-x-4 border-t-4 border-gray-100"
+          className="w-full h-40 border-x-4 border-t-4 border-gray-100"
         />
 
         <div onClick={handleWishlist}>
@@ -50,18 +50,18 @@ const ProductItem = ({ product }: any) => {
             <img
               src="/assets/icons/heart.png"
               alt="heart"
-              className="absolute inset-y-0 h-3 w-3 m-2 end-2"
+              className="absolute inset-y-0 h-4 w-4 m-2 end-2"
             />
           ) : (
             <img
               src="/assets/icons/love.png"
               alt="love"
-              className="absolute inset-y-0 h-3 w-3 m-2 end-2"
+              className="absolute inset-y-0 h-4 w-4 m-2 end-2"
             />
           )}
         </div>
 
-        <p className="text-gray-400 font-semibold text-[16px]">
+        <p className="text-gray-400 font-semibold text-[16px] mt-2">
           {product.name}
         </p>
         <div className="flex justify-between">

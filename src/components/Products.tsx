@@ -35,7 +35,7 @@ const Products = () => {
           <Loader />
         </div>
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
           {products?.map((x: any) => (
             <ProductItem key={x._id} product={x} />
           ))}

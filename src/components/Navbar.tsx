@@ -63,7 +63,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center md:mx-4">
+    <div className="flex flex-col justify-center mx-3 md:mx-4">
       <div className="topNavbar flex flex-row justify-between text-[12px] lg:text-[0.55rem]">
         <div className="flex flex-row my-2 align-middle">
           <section className="flex mx-2 items-center">
@@ -72,7 +72,7 @@ const Navbar = () => {
               alt="phone"
               className="h-2 w-2 mx-1"
             />
-            <p className="text-nowrap">+91 780xxxxxx90</p>
+            <p className="text-nowrap">+91 8900000001</p>
           </section>
           <section className="flex items-center">
             <img
@@ -80,7 +80,7 @@ const Navbar = () => {
               alt="email"
               className="h-1 lg:h-2 w-1 lg:w-2 mx-1"
             />
-            <p>xxxxxxxxxxxx@gmail.com</p>
+            <p>furniture30@gmail.com</p>
           </section>
         </div>
         <div className="flex items-center">

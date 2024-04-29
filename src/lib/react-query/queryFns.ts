@@ -54,7 +54,7 @@ export const getProducts = async () => {
 export const addProductToCart = async (productId: string) => {
   try {
     const data = await axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/${productId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/cart/${productId}`,
       {},
       {
         headers: {
