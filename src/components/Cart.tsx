@@ -48,18 +48,21 @@ const Cart = () => {
           <Loader />
         </div>
       ) : (
-        <div className="flex">
-          <div className="w-2/3">
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="sm:w-2/3">
             <div>
               {cart?.data?.cart?.products.map((x: any) => {
                 const product = x.productId;
                 const imageUrl = convertToImg(product.imgUrl);
                 return (
-                  <div key={product._id} className="flex gap-4 m-1 p-1">
+                  <div
+                    key={product._id}
+                    className="flex flex-col sm:flex-row gap-4 m-1 p-1 border-b-[1px] border-gray-100 py-5"
+                  >
                     <img
                       src={imageUrl}
                       alt={product.label}
-                      className="w-44 h-32 border-x-4 border-t-4 border-gray-100"
+                      className="w-full sm:w-44 h-32 border-x-4 border-t-4 border-gray-100"
                     />
                     <div className="flex flex-col gap-2">
                       <p className="font-semibold text-[16px]">
@@ -93,7 +96,7 @@ const Cart = () => {
               })}
             </div>
           </div>
-          <div className=" w-1/3">
+          <div className="sm:w-1/3">
             <div className="flex flex-col gap-1 border-[1px] border-gray-100 m-2 p-6 h-max">
               <div className="flex justify-center items-center gap-2">
                 <div className="h-2 bg-gray-100 w-full rounded-full">
