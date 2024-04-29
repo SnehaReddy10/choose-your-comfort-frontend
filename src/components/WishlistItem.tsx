@@ -15,14 +15,14 @@ const WishlistItem = ({ product }: any) => {
     }
   }
   return (
-    <div className="w-max">
+    <div className="w-full">
       <img
         src={product.imageUrl}
         alt={product.label}
-        className="w-44 h-32 border-x-4 border-t-4 border-gray-100"
+        className="w-full h-40 border-x-4 border-t-4 border-gray-100"
       />
       <p className="text-gray-400 font-semibold text-[16px]">{product.label}</p>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-2">
         <div>
           <span className="text-[14px] text-gray-200">
             ${product.actualPrice}

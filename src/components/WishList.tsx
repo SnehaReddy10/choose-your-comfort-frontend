@@ -39,7 +39,7 @@ const WishList = () => {
         </div>
       ) : (
         <div className="flex flex-col gap-5 my-2">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
             {wishlist?.data?.wishList?.products?.map((x: any) => (
               <WishlistItem product={x} />
             ))}
