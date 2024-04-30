@@ -3,11 +3,23 @@ import {
   useGetCart,
   usePlaceOrder,
 } from '@/lib/react-query/queriesAndMutations';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from './Loader';
 import Toast from './Toast';
+import { useEffect } from 'react';
+import { Constants } from '@/common/constants';
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem(Constants.TOKEN);
+    if (token === null) {
+      console.log('Navigating to /signin');
+      navigate('/signin');
+    }
+  }, [navigate]);
+
   const { data: cart, isLoading, isError, error } = useGetCart();
   const { mutateAsync: placeOrder } = usePlaceOrder();
 

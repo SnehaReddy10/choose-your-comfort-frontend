@@ -20,6 +20,7 @@ import WishList from './WishList';
 import Checkout from './Checkout';
 import Video from './Video';
 import { Constants } from '@/common/constants';
+import { useEffect } from 'react';
 
 const categories1 = [
   {
@@ -103,12 +104,6 @@ const Home = () => {
 };
 
 function Main() {
-  const navigate = useNavigate();
-
-  if (localStorage.getItem(Constants.TOKEN) == null) {
-    navigate('/signin');
-  }
-
   return (
     <div className="mb-8">
       <Hero />

@@ -1,9 +1,21 @@
 import { useGetWishlist } from '@/lib/react-query/queriesAndMutations';
 import WishlistItem from './WishlistItem';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from './Loader';
+import { Constants } from '@/common/constants';
+import { useEffect } from 'react';
 
 const WishList = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem(Constants.TOKEN);
+    if (token === null) {
+      console.log('Navigating to /signin');
+      navigate('/signin');
+    }
+  }, [navigate]);
+
   const { data: wishlist, isLoading, error } = useGetWishlist();
 
   if (error) {

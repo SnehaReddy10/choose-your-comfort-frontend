@@ -36,7 +36,7 @@ const Signin = () => {
 
   return (
     <div className="relative h-screen">
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-10">
         <div className="md:w-1/2">
           <img
             src="/assets/imgs/bed.png"
@@ -85,7 +85,7 @@ const Signin = () => {
       {errorWhileSigningin && (
         <Toast
           message={errorWhileSigningin}
-          className={'bottom-1 md:top-1 md:bottom-auto end-2 '}
+          className={'bottom-1 md:top-1 md:bottom-auto end-2'}
         />
       )}
     </div>
