@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import CategorySection from './CategorySection';
 import Feedback from './Feedback';
 import Footer from './Footer';
@@ -19,8 +19,6 @@ import Faq from './Faq';
 import WishList from './WishList';
 import Checkout from './Checkout';
 import Video from './Video';
-import { Constants } from '@/common/constants';
-import { useEffect } from 'react';
 
 const categories1 = [
   {
