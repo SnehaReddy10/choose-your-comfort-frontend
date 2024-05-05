@@ -24,7 +24,7 @@ const Signup = () => {
       navigate('/');
     } catch (err: any) {
       console.log(err);
-      setErrorWhileSigningup(err?.response?.data?.errors);
+      setErrorWhileSigningup(err?.response?.data?.error);
       setTimeout(() => {
         setErrorWhileSigningup('');
       }, 4000);
@@ -40,7 +40,14 @@ const Signup = () => {
   }
   return (
     <div className="relative h-screen">
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col-reverse md:flex-row-reverse space-y-16">
+        <div className="md:w-1/2">
+          <img
+            src="/assets/imgs/bed.png"
+            alt="bed"
+            className="w-screen h-1/4 md:h-screen translate-y-24 md:-translate-y-0"
+          />
+        </div>
         <div className="md:w-1/2 flex items-center justify-center text-[12px]">
           <form
             action="submit"
@@ -88,13 +95,6 @@ const Signup = () => {
               </p>
             </div>
           </form>
-        </div>
-        <div className="absolute bottom-0 md:relative md:w-1/2">
-          <img
-            src="/assets/imgs/bed.png"
-            alt="bed"
-            className="w-screen h-1/4 md:h-screen"
-          />
         </div>
       </div>
       {errorWhileSigningup && (
