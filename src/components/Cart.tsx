@@ -1,18 +1,15 @@
 import { convertToImg } from '@/common/helper';
-import {
-  useGetCart,
-  usePlaceOrder,
-} from '@/lib/react-query/queriesAndMutations';
+import { useCheckout, useGetCart } from '@/lib/react-query/queriesAndMutations';
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
 import Toast from './Toast';
 
 const Cart = () => {
   const { data: cart, isLoading, isError, error } = useGetCart();
-  const { mutateAsync: placeOrder } = usePlaceOrder();
+  const { mutateAsync: checkout, isPending: isPaymentPending } = useCheckout();
 
-  function handlePlaceOrder() {
-    placeOrder();
+  async function handleCheckout() {
+    await checkout();
   }
 
   const isCartEmpty = cart?.data?.cart?.products.length <= 0;
@@ -38,6 +35,18 @@ const Cart = () => {
             <Link to="/products">Shop Now</Link>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (isPaymentPending) {
+    return (
+      <div className="h-64 flex justify-center items-center">
+        <img
+          src="/assets/icons/mobile-payment.png"
+          alt="mobile-payment"
+          className="h-24 w-24"
+        />
       </div>
     );
   }
@@ -176,10 +185,10 @@ const Cart = () => {
             <Link to="/checkout">Proceed to Pay</Link>
           </p> */}
                 <p
-                  onClick={handlePlaceOrder}
+                  onClick={handleCheckout}
                   className="px-6 py-[2px] bg-orange-100 hover:bg-orange-400 text-white rounded-2xl text-center text-xs"
                 >
-                  <Link to="/checkout">Place Order</Link>
+                  <div>Place Order</div>
                 </p>
               </div>
             </div>

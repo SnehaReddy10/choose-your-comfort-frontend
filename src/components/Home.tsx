@@ -20,6 +20,7 @@ import WishList from './WishList';
 import Checkout from './Checkout';
 import Video from './Video';
 import { Constants } from '@/common/constants';
+import PaymentCancel from './PaymentCancel';
 
 const categories1 = [
   {
@@ -96,6 +97,7 @@ const Home = () => {
           <Route path="/wish-list" element={<WishList />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/play-video" element={<Video />} />
+          <Route path="/payment-cancel" element={<PaymentCancel />} />
         </Routes>
       </div>
     </div>

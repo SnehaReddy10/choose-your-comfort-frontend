@@ -161,3 +161,22 @@ export const getWishList = async () => {
     throw err;
   }
 };
+
+export const checkout = async () => {
+  try {
+    const data = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/payment/make-payment`,
+      {},
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
+    window.location = data.data;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};

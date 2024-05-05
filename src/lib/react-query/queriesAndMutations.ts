@@ -2,6 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import {
   addProductToCart,
   addProductToWishlist,
+  checkout,
   getCart,
   getImage,
   getProducts,
@@ -66,5 +67,11 @@ export const useGetImage = (mediaId: string) => {
   return useQuery({
     queryKey: ['media', mediaId],
     queryFn: () => getImage(mediaId),
+  });
+};
+
+export const useCheckout = () => {
+  return useMutation({
+    mutationFn: () => checkout(),
   });
 };
