@@ -2,7 +2,6 @@ import { convertToImg } from '@/common/helper';
 import { useCheckout, useGetCart } from '@/lib/react-query/queriesAndMutations';
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from './Loader';
-import Toast from './Toast';
 import { Constants } from '@/common/constants';
 import { useEffect } from 'react';
 
@@ -27,7 +26,19 @@ const Cart = () => {
 
   if (isError) {
     console.log('error-message', error.message);
-    return <Toast message={error.message} />;
+    return (
+      <div className="flex flex-col gap-8 justify-center items-center text-center mt-24">
+        <img
+          src="/assets/icons/error.png"
+          alt=""
+          className="h-20 w-20 shadow-gray-400 shadow-md rounded-full"
+        />
+        <div className="font-mono">
+          <div>Server Down.</div>
+          <div>Please try again in sometime</div>
+        </div>
+      </div>
+    );
   }
 
   if (isCartEmpty) {

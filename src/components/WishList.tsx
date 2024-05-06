@@ -19,7 +19,19 @@ const WishList = () => {
   const { data: wishlist, isLoading, error } = useGetWishlist();
 
   if (error) {
-    return <div>Please try again after some time</div>;
+    return (
+      <div className="flex flex-col gap-8 justify-center items-center text-center mt-24">
+        <img
+          src="/assets/icons/error.png"
+          alt=""
+          className="h-20 w-20 shadow-gray-400 shadow-md rounded-full"
+        />
+        <div className="font-mono">
+          <div>Server Down.</div>
+          <div>Please try again in sometime</div>
+        </div>
+      </div>
+    );
   }
 
   const isWishlistEmpty = wishlist?.data?.wishList?.products.length <= 0;

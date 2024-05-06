@@ -20,6 +20,7 @@ import WishList from './WishList';
 import Checkout from './Checkout';
 import Video from './Video';
 import PaymentCancel from './PaymentCancel';
+import NotFound from './NotFound';
 
 const categories1 = [
   {
@@ -97,6 +98,7 @@ const Home = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/play-video" element={<Video />} />
           <Route path="/payment-cancel" element={<PaymentCancel />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
