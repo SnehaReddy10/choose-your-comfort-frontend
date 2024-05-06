@@ -174,7 +174,7 @@ export const checkout = async () => {
         },
       }
     );
-    window.location = data.data;
+    window.open(data.data);
   } catch (err) {
     console.log(err);
     throw err;
