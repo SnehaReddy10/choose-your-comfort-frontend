@@ -1,31 +1,6 @@
-const socialMediaIcons = ['instagram', 'facebook', 'twitter', 'linkedin'];
-const designers = [
-  {
-    name: 'Sane',
-    description: `Meticulous attention to detail is the hallmark of Sane's work.
-    Their dedication to precision craftsmanship ensures that every
-    piece is not just furniture, but a true work of art.`,
-    role: 'Interior Designer',
-    profileUrl: 'profile-1',
-  },
-  {
-    name: 'Kevin',
-    description: `With a passion for avant-garde design, Kevin constantly pushes
-    the boundaries of creativity. Their visionary approach results
-    in statement pieces that redefine modern living, adding a touch
-    of innovation to every room.`,
-    role: 'Interior Designer',
-    profileUrl: 'profile-2',
-  },
-  {
-    name: 'Heera',
-    description: `Elegance and functionality converge seamlessly in the designs of
-    Heera. Their refined aesthetic sensibility transforms living
-    spaces into showcases of style and sophistication.`,
-    role: 'Interior Designer',
-    profileUrl: 'profile-3',
-  },
-];
+import { designers } from '@/seed-data/designers';
+import { socialMediaIcons } from '@/seed-data/social-media-icons';
+
 const About = () => {
   return (
     <div className="flex flex-col gap-10 my-4">
@@ -79,9 +54,9 @@ const About = () => {
                   {socialMediaIcons.map((x) => (
                     <div className="hover:bg-gray-100 rounded-full h-4 w-4 m-1 lg:m-2 flex justify-center items-center">
                       <img
-                        key={x}
+                        key={x.label}
                         src={`/assets/icons/${x}.png`}
-                        alt={x}
+                        alt={x.label}
                         className="h-2 w-2"
                       />
                     </div>

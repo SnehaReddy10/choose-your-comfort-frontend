@@ -1,57 +1,8 @@
+import { navItems } from '@/seed-data/nav-items';
+import { socialMediaIcons } from '@/seed-data/social-media-icons';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const socialMediaIcons = [
-  {
-    label: 'instagram',
-    route: 'https://www.instagram.com/',
-  },
-  {
-    label: 'facebook',
-    route: 'https://www.facebook.com/',
-  },
-  {
-    label: 'twitter',
-    route: 'https://twitter.com/',
-  },
-  {
-    label: 'linkedin',
-    route: 'https://in.linkedin.com/',
-  },
-];
-
-const sections = [
-  {
-    label: 'Home',
-    route: '/',
-    imgUrl: 'home',
-  },
-  {
-    label: 'Products',
-    route: '/products',
-    imgUrl: 'sofa',
-  },
-  {
-    label: 'Cart',
-    route: '/cart',
-    imgUrl: 'grocery-store',
-  },
-  {
-    label: 'Wishlist',
-    route: '/wish-list',
-    imgUrl: 'wish-list',
-  },
-  {
-    label: 'About',
-    route: '/about',
-    imgUrl: 'information-button',
-  },
-  {
-    label: 'FAQ',
-    route: '/faq',
-    imgUrl: 'help',
-  },
-];
 const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -105,7 +56,7 @@ const Navbar = () => {
       <div className="mt-2 bottomNavbar flex justify-between items-center text-sm">
         <div className="font-semibold text-base">Furniture</div>
         <div className="hidden md:flex text-[8px] lg:text-[12px] md:gap-1 lg:gap-2">
-          {sections.map((x) => {
+          {navItems.map((x) => {
             const isActive = pathname == x.route;
             return (
               <div key={x.label} className="hover:bg-gray-100 rounded-2xl px-1">
@@ -162,7 +113,7 @@ const Navbar = () => {
                 showDropdown ? 'flex flex-col' : 'hidden'
               } bg-gray-300 rounded-md transition-all duration-300 ease-in-out`}
             >
-              {sections.map((x) => {
+              {navItems.map((x) => {
                 const isActive = pathname == x.route;
                 return (
                   <div

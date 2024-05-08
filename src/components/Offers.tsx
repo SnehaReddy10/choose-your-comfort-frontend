@@ -1,7 +1,6 @@
+import { offers } from '@/seed-data/offers';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
-
-const offers = ['offer-1', 'bed', 'bed-room'];
 
 const Offers = () => {
   const [curr, setCurr] = useState(0);

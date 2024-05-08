@@ -1,29 +1,6 @@
+import { brands } from '@/seed-data/brands';
+import { searchItems } from '@/seed-data/search-items';
 import { Link, useNavigate } from 'react-router-dom';
-
-const searchItems = [
-  {
-    label: 'Comfort',
-    advantage: 'Cozy Seating',
-    imgUrl: 'meditation',
-  },
-  {
-    label: 'Quality Assurance',
-    advantage: 'Cozy Seating',
-    imgUrl: 'like',
-  },
-  {
-    label: 'Free Shipping',
-    advantage: 'No-Cost Delivery',
-    imgUrl: 'truck',
-  },
-  {
-    label: 'Secure Checkout',
-    advantage: 'Secure Payments',
-    imgUrl: 'interface',
-  },
-];
-
-const brands = ['Lowe’s', 'DeWalt', 'Home Depot', 'IKEA', 'Makita', '3M'];
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -80,32 +57,6 @@ const Hero = () => {
               See More
             </button>
           </div>
-          {/* <div>
-            <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
-              <div className="flex w-max space-x-4 p-4">
-                {searchItems.map((x) => (
-                  <figure key={x.label} className="shrink-0 flex gap-2 w-[80%]">
-                    <div className="overflow-hidden rounded-md">
-                      <img
-                        src={`/assets/icons/${x.imgUrl}.png`}
-                        alt={`Photo by ${x.label}`}
-                        className="aspect-[3/4] object-cover h-10 w-10"
-                        width={300}
-                        height={400}
-                      />
-                    </div>
-                    <figcaption className="pt-2 text-[14px] text-muted-foreground">
-                      Photo by{' '}
-                      <span className="font-semibold text-foreground">
-                        {x.label}
-                      </span>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-              <ScrollBar orientation="horizontal" />
-            </ScrollArea>
-          </div> */}
         </div>
         <div className="">
           <img

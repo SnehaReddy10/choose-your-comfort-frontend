@@ -204,13 +204,13 @@ const Cart = () => {
               </div>
               <div className="mt-6">
                 {/* <p className="px-6 py-[2px] bg-orange-100 hover:bg-orange-400 text-white rounded-2xl text-center text-xs">
-            <Link to="/checkout">Proceed to Pay</Link>
+            <Link to="/checkout"></Link>
           </p> */}
                 <p
                   onClick={handleCheckout}
                   className="px-6 py-[2px] bg-orange-100 hover:bg-orange-400 text-white rounded-2xl text-center text-xs"
                 >
-                  <div>Place Order</div>
+                  <div>Proceed to Pay</div>
                 </p>
               </div>
             </div>
