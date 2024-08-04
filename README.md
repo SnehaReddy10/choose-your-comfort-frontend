@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Furniture Selling App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Thumbnail](/assets/imgs/thumbnail.png)
 
-Currently, two official plugins are available:
+A responsive furniture selling website built using the MERN stack (MongoDB, Express, React, Node.js), styled with Tailwind CSS, integrated with Stripe for payments, and deployed using NGINX as a reverse proxy.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)
+- [Technologies](#technologies)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- User authentication
+- Product listings and detailed views
+- Shopping cart functionality
+- Checkout process with Stripe payment integration
+- Responsive design using Tailwind CSS
+- Efficient data fetching and state management with React Query
+- Real-time updates and notifications
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Technologies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Frontend**: React, Tailwind CSS, React Query
+- **Backend**: Node.js, Express, MongoDB
+- **Payments**: Stripe
+- **Deployment**: NGINX, Docker
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
