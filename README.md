@@ -1,6 +1,6 @@
 # Furniture Selling App
 
-![Thumbnail](/assets/imgs/thumbnail.png)
+![Thumbnail]('/assets/imgs/thumbnail.png')
 
 A responsive furniture selling website built using the MERN stack (MongoDB, Express, React, Node.js), styled with Tailwind CSS, integrated with Stripe for payments, and deployed using NGINX as a reverse proxy.
 
